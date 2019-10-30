@@ -21,14 +21,20 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 @import "mixins";
 @import "typography/index";
 @import "vars";
+
 @import "components/links";
 @import "components/btns";
+@import "components/cards";
 
+@import "pages/front-page";
 
 body {
-  background: $gray-200;
-  color: $gray-900;
-  padding: 1rem 1.75rem;
+  background: $blue-100;
+  color: $blue-900;
+  margin: 0 auto;
+}
+
+.fit-content {
   max-width: 960px;
   margin: 0 auto;
 }

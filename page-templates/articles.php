@@ -1,6 +1,12 @@
 <?php
+/*
+ * Template Name: Articles
+ * Template Post Type: articles
+ */
+
 get_header();
-$header = get_field('article_header')
+$header = get_field('article_header');
+$body = get_field('article_body');
 ?>
 
 
@@ -14,12 +20,15 @@ $header = get_field('article_header')
 
 <main>
   <?php
-  if (have_rows('paragraphs')) :
-    while (have_rows('paragraphs')) : the_row();
+  if (have_rows('article_body')) :
+    while (have_rows('article_body')) : the_row();
       ?>
 
-      <div class="article-text">
-        <p><?php the_sub_field('text'); ?></p>
+      <div class="article-content">
+       <?php if (get_sub_field('content_heading')): ?>
+        <h2><?php the_sub_field('content_heading') ?></h2>
+        <?php endif; ?>
+        <p><?php the_sub_field('content'); ?></p>
       </div>
       <?php if (get_sub_field("image") != "") { ?>
         <img src="<?php the_sub_field('image'); ?>" alt="Image of a cat">
@@ -30,5 +39,4 @@ $header = get_field('article_header')
     <?php endwhile; ?>
   <?php endif; ?>
 </main>
-
 <?php get_footer(); ?>
