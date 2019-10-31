@@ -94,7 +94,8 @@ h1, h2, h3, h4, h5 {
   margin: 2.75rem 0 1rem;
   font-family: sans-serif;
   font-weight: 400;
-  line-height: 1.15; }
+  line-height: 1.15;
+  margin-top: 0; }
 
 h1 {
   margin-top: 0;
@@ -135,21 +136,78 @@ a, a:visited {
   color: #63b3ed;
   text-decoration: none; }
 
+.svg-btn, .like-btn, .share-btn, .favorite-btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  transition: all .25s;
+  color: #a0aec0; }
+  .svg-btn svg, .like-btn svg, .share-btn svg, .favorite-btn svg {
+    width: 1.125rem;
+    margin-right: .5rem; }
+
+.like-btn {
+  margin-right: 1.25rem; }
+  .like-btn:hover {
+    color: #f56565; }
+
+.share-btn:hover {
+  color: #718096; }
+
+.favorite-btn:hover {
+  color: #f6e05e; }
+
 .article-card {
   background: white;
   max-width: 300px;
   border-radius: 4px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  padding: 1rem 1.25rem; }
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+  .article-card img {
+    width: 100%;
+    border-radius: 4px 4px 0 0; }
   .article-card h3 {
-    margin-top: 0; }
+    margin-top: 0;
+    padding: 0 .5rem;
+    margin-bottom: 0;
+    color: #2b6cb0; }
+  .article-card h4 {
+    font-size: .8rem;
+    padding: .25rem .5rem;
+    margin-bottom: 0;
+    font-weight: 900;
+    color: #2b6cb0; }
   .article-card footer {
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-between;
+    padding: .15rem .5rem; }
+  .article-card p {
+    padding: 0 .5rem;
+    margin-bottom: 0;
+    color: #4a5568; }
+  .article-card a, .article-card a:visited {
+    font-weight: 900;
+    color: #2d3748; }
+    .article-card a:hover, .article-card a:visited:hover {
+      color: #2b6cb0;
+      text-decoration: underline; }
+
+.article-card-color-bar {
+  margin-bottom: .15rem;
+  height: 10px;
+  width: 100%;
+  background: #2b6cb0; }
+
+.article-card-author {
+  color: #a0aec0;
+  font-size: .8rem; }
+
+.article-card-excerpt {
+  padding: 0 1.5rem; }
 
 .article-card-separator {
-  width: calc(100% + 2.5rem);
-  margin-left: -1.25rem; }
+  border: 0.5px solid #e2e8f0; }
 
 .article-card.category {
   text-transform: uppercase;
@@ -160,8 +218,8 @@ a, a:visited {
   margin: 0 auto; }
 
 body {
-  background: #ebf8ff;
-  color: #2a4365;
+  background: #f7fafc;
+  color: #1a202c;
   margin: 0 auto; }
 
 .fit-content {

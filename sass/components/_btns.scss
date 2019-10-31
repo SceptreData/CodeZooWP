@@ -1,0 +1,35 @@
+.svg-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    transition: all .25s;
+    color: $gray-500;
+    svg {
+        width: 1.125rem;
+        margin-right: .5rem;
+    }
+}
+.like-btn {
+    @extend .svg-btn;
+    margin-right: 1.25rem;
+
+    &:hover {
+        color: $red-500;
+    }
+}
+
+.share-btn {
+    @extend .svg-btn;
+    &:hover {
+        color: $gray-600;
+    }
+}
+
+.favorite-btn {
+    @extend .svg-btn;
+    &:hover {
+        color: $yellow-400;
+    }
+}

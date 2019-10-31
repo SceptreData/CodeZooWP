@@ -2,22 +2,70 @@
     background: white;
     max-width: 300px;
     border-radius: 4px;
-    box-shadow: $shadow;
-    padding: 1rem 1.25rem;
+    box-shadow: $shadow-md;
+    img {
+        width: 100%;
+        border-radius: 4px 4px 0 0;
+    }
     h3 {
         margin-top: 0;
+        padding: 0 .5rem;
+        margin-bottom: 0;
+        color: $blue-700;
     }
-    h4 {font-size: }
+    h4 {
+        font-size: .8rem;
+        padding: .25rem .5rem;
+        margin-bottom: 0;
+        font-weight: 900;
+        color: $blue-700;
+    }
 
     footer {
         display: flex;
         justify-content: space-between;
+        padding: .15rem .5rem;
+    }
+    p {
+        padding: 0 .5rem;
+        margin-bottom: 0;
+        color: $gray-700;
+    }
+    a, a:visited {
+        font-weight: 900;
+        color: $gray-800;
+        &:hover{
+            color: $blue-700;
+            text-decoration: underline;
+        }
     }
 }
 
+
+
+
+.article-card-header {
+
+}
+
+.article-card-color-bar {
+    margin-bottom: .15rem;
+    height: 10px;
+    width: 100%;
+    background: $blue-700;
+}
+
+.article-card-author {
+    color: $gray-500;
+    font-size: .8rem;
+}
+
+.article-card-excerpt {
+    padding: 0 1.5rem;
+}
+
 .article-card-separator {
-    width: calc(100% + 2.5rem);
-    margin-left: -1.25rem;
+    border: .5px solid $gray-300;
 }
 
 
