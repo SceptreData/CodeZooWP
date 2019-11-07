@@ -1,0 +1,17 @@
+.single-article {
+  max-width: $screen-xl;
+  margin: 0 auto;
+}
+
+.single-article-hero {
+  margin: 0 auto;
+  & > div {
+    max-width: 60ch;
+    margin: 0 auto;
+  }
+}
+
+.article-content {
+  max-width: 60ch;
+  margin: 0 auto;
+}

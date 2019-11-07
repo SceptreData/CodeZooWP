@@ -1,0 +1,33 @@
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+
+.site-header {
+  display: flex; 
+  justify-content: space-between;
+}
+.menu.nav-menu {
+  justify-content: space-between;
+  max-width: $screen-xl;
+  margin: 0 auto;
+
+  & > li {
+    display: inline;
+    margin-right: 1.5rem;
+  }
+
+  li:last-of-type{
+    margin-right: 0;
+  }
+}
+
+.main-navigation {
+  display: flex;
+  button {
+    background: $gray-800;
+    color: white;
+    box-shadow: $shadow;
+  }
+}
+
