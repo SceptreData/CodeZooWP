@@ -18,7 +18,6 @@ get_header();
       <div class="heading-underline"></div>
     </header>
     <div class="fp-articles">
-
       <div class="article-card">
         <header class="article-card-header">
           <img src="https://picsum.photos/id/42/300/200">
