@@ -1,0 +1,51 @@
+.hero {
+  min-height: 60vh;
+  background: $gray-700;
+  text-align: center;
+  padding: 5rem 1.5rem;
+  color: $gray-200;
+  margin-bottom: 4.5rem;
+
+  p {
+    font-weight: 700;
+    font-size: 2.25rem;
+  }
+}
+
+.zoo {
+  color: $gray-200;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 3.5rem;
+}
+
+.zoo-animal {
+  width: 150px;
+  margin-right: 2rem;
+  transition: 0.15s cubic-bezier(0.19, 1, 0.22, 1);
+
+  &:hover {
+    transform: translateY(-2.25rem) rotate(-15deg);
+  }
+}
+
+.zoo-animal:first-of-type {
+  transform: scaleX(-1);
+
+  &:hover {
+    transform: translateY(-2.25rem) rotate(10deg) scaleX(-1);
+  }
+}
+
+.zoo-animal:nth-of-type(2) {
+  width: 230px;
+}
+
+.zoo-animal:last-of-type {
+  transform: scaleX(-1);
+  margin-right: 0;
+  &:hover {
+    transform: rotate(-15deg) scaleX(-1);
+  }
+}

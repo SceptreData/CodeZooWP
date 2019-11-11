@@ -1,35 +1,56 @@
 .svg-btn {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    background: none;
-    border: 0;
-    transition: all .25s;
-    color: $gray-500;
-    svg {
-        width: 1.125rem;
-        margin-right: .5rem;
-    }
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  transition: all 0.25s;
+  color: $gray-500;
+  svg {
+    width: 1.125rem;
+    margin-right: 0.5rem;
+  }
 }
 .like-btn {
-    @extend .svg-btn;
-    margin-right: 1.25rem;
+  @extend .svg-btn;
+  margin-right: 1.25rem;
 
-    &:hover {
-        color: $red-500;
-    }
+  &:hover {
+    color: $red-500;
+  }
 }
 
 .share-btn {
-    @extend .svg-btn;
-    &:hover {
-        color: $gray-600;
-    }
+  @extend .svg-btn;
+  &:hover {
+    color: $gray-600;
+  }
 }
 
 .favorite-btn {
-    @extend .svg-btn;
-    &:hover {
-        color: $yellow-400;
-    }
+  @extend .svg-btn;
+  &:hover {
+    color: $yellow-400;
+  }
+}
+
+.call-to-action-btn {
+  padding: 0.75rem 1.5rem;
+  text-transform: uppercase;
+  box-shadow: $shadow;
+}
+
+.hero-btn {
+  @extend .call-to-action-btn;
+  font-weight: 400;
+  font-size: 1.125rem;
+  background: $gray-200;
+  box-shadow: $shadow-light;
+  color: $gray-900;
+  transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s;
+  &:hover {
+    background: $gray-600;
+    color: $gray-100;
+    box-shadow: $shadow-light__hover;
+  }
 }

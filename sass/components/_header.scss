@@ -1,7 +1,35 @@
 .site-header {
-  div, nav {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 1rem 2.5rem;
+  div,
+  nav {
+    max-width: 1170px;
   }
+}
+
+.logo-hippo {
+  width: 50px;
+  margin-right: 1.25rem;
+}
+
+.site-header {
+  background: $gray-900;
+  color: $gray-300;
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  color: $gray-200;
+  text-decoration: none;
+  &:hover {
+    color: $gray-100;
+  }
+
+  h2 {
+    margin-bottom: 0.25rem;
+    color: $gray-200;
+  }
+}
+
+.site-branding .site-branding-titles {
+  color: $gray-200;
 }

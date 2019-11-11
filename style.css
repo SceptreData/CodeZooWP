@@ -15,6 +15,7 @@ CodeZoo is based on Underscores https://underscores.me/
 (C) 2012-2017 Automattic, Inc.
 
 Underscores is distributed under the terms of the GNU GPL v2 or later.
+nt
 */
 /* Box sizing rules */
 *,
@@ -132,9 +133,14 @@ small, .text_small {
 /********************************
  Box Shadow
  ********************************/
-a, a:visited {
-  color: #63b3ed;
-  text-decoration: none; }
+a,
+a:visited {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #e2e8f0; }
+  a:hover,
+  a:visited:hover {
+    color: #f7fafc; }
 
 .svg-btn, .like-btn, .share-btn, .favorite-btn {
   display: flex;
@@ -142,11 +148,11 @@ a, a:visited {
   cursor: pointer;
   background: none;
   border: 0;
-  transition: all .25s;
+  transition: all 0.25s;
   color: #a0aec0; }
   .svg-btn svg, .like-btn svg, .share-btn svg, .favorite-btn svg {
     width: 1.125rem;
-    margin-right: .5rem; }
+    margin-right: 0.5rem; }
 
 .like-btn {
   margin-right: 1.25rem; }
@@ -159,10 +165,139 @@ a, a:visited {
 .favorite-btn:hover {
   color: #f6e05e; }
 
-.site-header div, .site-header nav {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 1rem 2.5rem; }
+.call-to-action-btn, .hero-btn {
+  padding: 0.75rem 1.5rem;
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
+
+.hero-btn {
+  font-weight: 400;
+  font-size: 1.125rem;
+  background: #edf2f7;
+  box-shadow: 0 1px 3px 0 rgba(234, 234, 234, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  color: #1a202c;
+  transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s; }
+  .hero-btn:hover {
+    background: #718096;
+    color: #f7fafc;
+    box-shadow: 0 1px 3px 0 rgba(234, 234, 234, 0.6), 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
+
+.site-header div,
+.site-header nav {
+  max-width: 1170px; }
+
+.logo-hippo {
+  width: 50px;
+  margin-right: 1.25rem; }
+
+.site-header {
+  background: #1a202c;
+  color: #e2e8f0; }
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  color: #edf2f7;
+  text-decoration: none; }
+  .site-branding:hover {
+    color: #f7fafc; }
+  .site-branding h2 {
+    margin-bottom: 0.25rem;
+    color: #edf2f7; }
+
+.site-branding .site-branding-titles {
+  color: #edf2f7; }
+
+.site-footer {
+  padding-top: 7rem;
+  background: #222; }
+
+.footer-content {
+  display: block;
+  color: #a0aec0;
+  font-size: 12px; }
+  @media screen and (min-width: 768px) {
+    .footer-content {
+      display: flex;
+      justify-content: space-between; } }
+
+.footer-content section {
+  padding: 1rem 1.5rem; }
+
+.footer-content h5 {
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 0.25rem; }
+
+.footer-nav {
+  border-top: 1px solid #2d3748;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 7rem; }
+
+.footer-nav .brand a {
+  display: flex;
+  color: #cbd5e0;
+  align-items: center; }
+  .footer-nav .brand a svg {
+    width: 50px;
+    margin-right: 0.5rem; }
+  .footer-nav .brand a:hover {
+    color: #edf2f7; }
+
+.footer-nav-links a,
+.footer-nav-links a:visited {
+  color: #cbd5e0;
+  font-weight: 700;
+  text-decoration: none;
+  margin-right: 2.5rem; }
+
+.footer-nav-links a:last-of-type {
+  margin-right: 0; }
+
+.footer-nav-links a:hover {
+  color: #e2e8f0; }
+
+.hero {
+  min-height: 60vh;
+  background: #4a5568;
+  text-align: center;
+  padding: 5rem 1.5rem;
+  color: #edf2f7;
+  margin-bottom: 4.5rem; }
+  .hero p {
+    font-weight: 700;
+    font-size: 2.25rem; }
+
+.zoo {
+  color: #edf2f7;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 3.5rem; }
+
+.zoo-animal {
+  width: 150px;
+  margin-right: 2rem;
+  transition: 0.15s cubic-bezier(0.19, 1, 0.22, 1); }
+  .zoo-animal:hover {
+    transform: translateY(-2.25rem) rotate(-15deg); }
+
+.zoo-animal:first-of-type {
+  transform: scaleX(-1); }
+  .zoo-animal:first-of-type:hover {
+    transform: translateY(-2.25rem) rotate(10deg) scaleX(-1); }
+
+.zoo-animal:nth-of-type(2) {
+  width: 230px; }
+
+.zoo-animal:last-of-type {
+  transform: scaleX(-1);
+  margin-right: 0; }
+  .zoo-animal:last-of-type:hover {
+    transform: rotate(-15deg) scaleX(-1); }
 
 .article-card {
   background: white;
@@ -221,32 +356,39 @@ a, a:visited {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.site-header {
-  display: flex;
-  justify-content: space-between; }
+.header-container {
+  display: flex; }
 
 .menu.nav-menu {
   justify-content: space-between;
   max-width: 1200px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: flex; }
   .menu.nav-menu > li {
-    display: inline;
     margin-right: 1.5rem; }
   .menu.nav-menu li:last-of-type {
     margin-right: 0; }
 
 .main-navigation {
-  display: flex; }
+  display: flex;
+  align-items: center;
+  margin-left: auto; }
   .main-navigation button {
-    background: #2d3748;
-    color: white;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 4px;
+    margin-left: 1rem;
+    max-height: 100px;
+    padding: 0rem 1.5rem;
+    background: #3182ce;
+    color: #edf2f7;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border: none;
+    display: block; }
+    .main-navigation button:hover {
+      background: #63b3ed; }
 
 .fp-content {
-  max-width: 960px;
-  margin: 0 auto; }
-
-.hero {
   max-width: 960px;
   margin: 0 auto; }
 
@@ -270,5 +412,5 @@ body {
   margin: 0 auto; }
 
 .fit-content {
-  max-width: 960px;
+  max-width: 1170px;
   margin: 0 auto; }

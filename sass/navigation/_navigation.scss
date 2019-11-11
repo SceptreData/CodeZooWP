@@ -1,33 +1,43 @@
-
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
 
-.site-header {
-  display: flex; 
-  justify-content: space-between;
+.header-container {
+  display: flex;
 }
 .menu.nav-menu {
   justify-content: space-between;
   max-width: $screen-xl;
   margin: 0 auto;
+  display: flex;
 
   & > li {
-    display: inline;
     margin-right: 1.5rem;
   }
 
-  li:last-of-type{
+  li:last-of-type {
     margin-right: 0;
   }
 }
 
 .main-navigation {
   display: flex;
+  align-items: center;
+  margin-left: auto;
   button {
-    background: $gray-800;
-    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 4px;
+    margin-left: 1rem;
+    max-height: 100px;
+    padding: 0rem 1.5rem;
+    background: $blue-600;
+    color: $gray-200;
     box-shadow: $shadow;
+    border: none;
+    display: block;
+    &:hover {
+      background: $blue-400;
+    }
   }
 }
-

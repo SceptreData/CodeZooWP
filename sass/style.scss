@@ -15,6 +15,7 @@ CodeZoo is based on Underscores https://underscores.me/
 (C) 2012-2017 Automattic, Inc.
 
 Underscores is distributed under the terms of the GNU GPL v2 or later.
+nt
 */
 @import "init/reset";
 @import "mixins";
@@ -24,6 +25,8 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 @import "components/links";
 @import "components/btns";
 @import "components/header";
+@import "components/footer";
+@import "components/hero";
 @import "components/cards";
 
 @import "navigation/navigation";
@@ -34,11 +37,11 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 body {
   background: $gray-100;
   color: $gray-900;
+
   margin: 0 auto;
 }
 
-
 .fit-content {
-  max-width: 960px;
+  max-width: 1170px;
   margin: 0 auto;
 }

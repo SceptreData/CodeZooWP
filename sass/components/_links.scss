@@ -1,4 +1,9 @@
-a, a:visited {
-  color: $blue-400;
+a,
+a:visited {
   text-decoration: none;
+  text-transform: uppercase;
+  color: $gray-300;
+  &:hover {
+    color: $gray-100;
+  }
 }

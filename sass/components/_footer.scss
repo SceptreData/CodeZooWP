@@ -1,0 +1,65 @@
+.site-footer {
+  padding-top: 7rem;
+  background: #222;
+}
+
+.footer-content {
+  display: block;
+  color: $gray-500;
+  font-size: 12px;
+
+  @media screen and (min-width: $screen-md) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.footer-content section {
+  padding: 1rem 1.5rem;
+}
+
+.footer-content h5 {
+  font-weight: 700;
+  color: $gray-300;
+  margin-bottom: 0.25rem;
+}
+
+.footer-nav {
+  border-top: 1px solid $gray-800;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 7rem;
+}
+
+.footer-nav .brand a {
+  display: flex;
+  color: $gray-400;
+  align-items: center;
+  svg {
+    width: 50px;
+    margin-right: 0.5rem;
+  }
+
+  &:hover {
+    color: $gray-200;
+  }
+}
+
+.footer-nav-links {
+  a,
+  a:visited {
+    color: $gray-400;
+    font-weight: 700;
+    text-decoration: none;
+    margin-right: 2.5rem;
+  }
+  a:last-of-type {
+    margin-right: 0;
+  }
+
+  a:hover {
+    color: $gray-300;
+  }
+}
