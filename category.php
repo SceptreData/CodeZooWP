@@ -34,6 +34,8 @@ $author = get_the_author_meta('display_name', $user_id);
                 <article>
                     <header>
                         <?php the_title('<h2>', '</h2>'); ?>
+                        <?php the_post_thumbnail(); ?>
+                        <?php the_shortlink("Link")
                     </header>
                 </article>
                 <?php
@@ -59,3 +61,7 @@ get_sidebar();
 get_footer();
 
 
+// template tags togs
+// the_permalink();
+// the_date();
+// the_content();
