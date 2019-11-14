@@ -14,7 +14,6 @@ $author = get_the_author_meta('display_name', $user_id);
     <div>
       <h1><?= $header['title'] ?></h1>
       <p><?= $header['tagline'] ?></p>
-      <aside>Written by: <?= $author; ?></aside>
     </div>
   </div>
 

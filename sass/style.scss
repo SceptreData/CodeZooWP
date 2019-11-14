@@ -41,6 +41,18 @@ body {
   margin: 0 auto;
 }
 
+#content {
+  padding-top: 100px;
+
+  @media screen and (min-width: 600px) {
+    padding-top: 0;
+  }
+}
+
+.single-articles .content {
+  padding-top: 100px;
+}
+
 .fit-content {
   max-width: 1170px;
   margin: 0 auto;
