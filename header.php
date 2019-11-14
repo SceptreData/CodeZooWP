@@ -66,7 +66,7 @@
        </ul>
 </nav>
         <aside id="mobile-menu-items" class="mobile-menu-items hide-menu">
-           <?php wp_nav_menu(array('menu'=>'Articles', 'menu_class'=> 'icon-list')); ?>
+           <?php wp_nav_menu(array('menu'=>'Categories', 'menu_class'=> 'icon-list')); ?>
         </aside>
       </div>
     </header><!-- #masthead -->
