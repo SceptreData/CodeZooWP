@@ -47,17 +47,28 @@
         </div>
         </a><!-- .site-branding -->
 
-      <nav id="site-navigation" class="main-navigation">
-        <?php
-        wp_nav_menu(array(
-          'theme_location' => 'menu-1',
-          'menu_id'        => 'primary-menu',
-        ));
-        ?>
-        <!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'codezoo'); ?></button> -->
-        <button>Login</button>
+        <nav class="site-nav">
+       <ul class="icon-view">
+        
+       <li class="list-view-container">
+            <?php wp_nav_menu(array('menu' => 'Articles', 'menu_class'=> 'list-view',));?>
+       </li>
+
+
+       <li id="mobile-menu-button" class="mobile-menu" >
+          <svg aria-hidden="true" focusable="false"  class="mobile-menu-icon svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
+       </li>
+
+        <li class="login">
+        <a  class="login-button" href="https://davidbergeron.dev/wp-admin">login</a>
+       </li>
+
+       </ul>
+</nav>
+        <aside id="mobile-menu-items" class="mobile-menu-items hide-menu">
+           <?php wp_nav_menu(array('menu'=>'Articles', 'menu_class'=> 'icon-list')); ?>
+        </aside>
       </div>
-      </nav><!-- #site-navigation -->
     </header><!-- #masthead -->
 
     <div id="content" class="site-content">

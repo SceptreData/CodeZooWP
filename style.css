@@ -207,7 +207,13 @@ a:visited {
 .site-header {
   background: #2d3748;
   color: #e2e8f0;
-  padding: 1rem 0rem; }
+  padding: 1rem 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 10; }
+  @media screen and (min-width: 600px) {
+    .site-header {
+      position: relative; } }
   .site-header .site-title {
     font-size: 1.25rem;
     text-transform: initial;
@@ -296,7 +302,11 @@ a:visited {
   text-align: center;
   padding: 5rem 1.5rem;
   color: #edf2f7;
-  margin-bottom: 4.5rem; }
+  margin-bottom: 4.5rem;
+  padding-top: calc(93px + 5rem); }
+  @media screen and (min-width: 600px) {
+    .hero {
+      padding: 5rem 1.5rem; } }
   .hero h2 {
     margin-bottom: 0.25rem; }
   .hero p {
@@ -435,6 +445,121 @@ a:visited {
     display: block; }
     .main-navigation button:hover {
       background: #63b3ed; }
+
+.site-nav {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 101;
+  color: #e2e8f0;
+  display: flex; }
+
+.icon-view {
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end; }
+
+a.home-link {
+  text-decoration: none;
+  color: #adacac;
+  font-weight: 700; }
+
+.mobile-menu-icon {
+  width: 1.5rem;
+  vertical-align: middle;
+  color: #e2e8f0;
+  margin-left: auto; }
+  .mobile-menu-icon:hover {
+    color: #f7fafc; }
+
+.login {
+  display: none; }
+
+.list-view-container {
+  display: none; }
+
+.login-button {
+  background: #4299e1;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-bottom-width: 4px;
+  border-color: #2b6cb0;
+  border-radius: 0.25rem; }
+  .login-button:hover {
+    border-color: #4299e1;
+    background: #63b3ed; }
+
+.menu-item {
+  font-size: 0.8rem; }
+
+/* 
+---------------------------------------------------------------------------------------
+MOBILE MENU STYLES
+-------------------------------------------------------------------------------------
+*/
+#mobile-menu-items {
+  width: 70%;
+  height: 100vh;
+  padding-left: 3.75rem;
+  padding-top: 6.25rem; }
+
+.mobile-menu-items {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  background: #a0aec0;
+  padding: 2rem 1rem;
+  z-index: 100;
+  color: #1a202c;
+  font-size: 1.5rem; }
+
+.mobile-menu-items a,
+.mobile-menu-items a:visited {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #4a5568; }
+  .mobile-menu-items a:hover,
+  .mobile-menu-items a:visited:hover {
+    color: #e2e8f0; }
+
+.mobile-menu-items li {
+  margin-bottom: 0.3rem; }
+
+/* 
+---------------------------------------------------------------------------------------
+Break Point Styles Switch between drop down menu and  list of links
+-------------------------------------------------------------------------------------
+*/
+@media (min-width: 600px) {
+  .mobile-menu {
+    display: none; }
+  .login {
+    display: block; }
+  .list-view-container {
+    display: block; }
+  .list-view {
+    display: flex;
+    justify-content: flex-end; }
+  .menu-item {
+    margin: 0 1rem; }
+  .menu-item a {
+    text-decoration: none;
+    color: #e2e8f0; }
+  .menu-item a:hover {
+    color: #f7fafc; }
+  .icon-view {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
+  .icon-list {
+    display: flex;
+    flex-direction: column; } }
 
 .fp-articles {
   display: flex;
