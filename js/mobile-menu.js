@@ -16,6 +16,7 @@ window.addEventListener("load", e => {
     });
 
     window.addEventListener("resize", function (e) {
+        console.log("WOHOHO");
         if (window.innerWidth >= 600) {
             mobileMenu.style.display = "none";
         }
