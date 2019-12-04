@@ -2,6 +2,11 @@
 /*
  * Template file for the Front-Page
  */
+$articles = WP_Query([
+  'post_type' => 'articles',
+  'posts_per_page' => '4',
+  'orderby' => 'rand'
+])
 
 get_header();
 ?>
