@@ -26,7 +26,7 @@ if ( ! function_exists( 'codezoo_setup' ) ) :
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
-
+		add_image_size('');
 		/*
 		 * Let WordPress manage the document title.
 		 * By adding theme support, we declare that this theme does not use a
@@ -161,9 +161,14 @@ add_action( 'widgets_init', 'codezoo_widgets_init' );
 function codezoo_scripts() {
   wp_enqueue_style( 'codezoo-style', get_stylesheet_uri() );
 
+<<<<<<< HEAD
 
 	wp_enqueue_script( 'codezoo-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+=======
+>>>>>>> 8ac0e5531bd56dcb60f22bbd1b04c60a9537eb8a
 
+	// wp_enqueue_script( 'codezoo-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script("jargon-mobile-menu",  get_template_directory_uri() . "/js/mobile-menu.js");
 	wp_enqueue_script( 'codezoo-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 	wp_enqueue_script( 'mobile-menu', get_template_directory_uri() . '/js/mobile-menu.js', array(), '20151215', true );
 

@@ -35,10 +35,22 @@ nt
 @import "pages/article";
 
 body {
-  background: $gray-100;
+  background: $gray-300;
   color: $gray-900;
 
   margin: 0 auto;
+}
+
+#content {
+  padding-top: 100px;
+
+  @media screen and (min-width: 600px) {
+    padding-top: 0;
+  }
+}
+
+.single-articles .content {
+  padding-top: 100px;
 }
 
 .fit-content {

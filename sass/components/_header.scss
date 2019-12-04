@@ -11,8 +11,25 @@
 }
 
 .site-header {
-  background: $gray-900;
+  background: $gray-800;
   color: $gray-300;
+  padding: 1rem 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  @media screen and (min-width: 600px) {
+    position: relative;
+  }
+  .site-title {
+    font-size: 1.25rem;
+    text-transform: initial;
+    color: $gray-200;
+    padding: 0;
+    margin-bottom: 0;
+    @media screen and (min-width: $screen-md) {
+      font-size: 2.5rem;
+    }
+  }
 }
 
 .site-branding {
@@ -23,13 +40,18 @@
   &:hover {
     color: $gray-100;
   }
-
-  h2 {
-    margin-bottom: 0.25rem;
-    color: $gray-200;
+  .site-description {
+    margin-bottom: 0;
   }
 }
 
+.site-description {
+  font-size: 0.8rem;
+  margin: 0;
+  @media screen and (min-width: $screen-md) {
+    font-zie: 1rem;
+  }
+}
 .site-branding .site-branding-titles {
   color: $gray-200;
 }

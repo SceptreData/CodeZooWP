@@ -9,9 +9,18 @@
     max-width: 60ch;
     margin: 0 auto;
   }
+  img {
+    text-align: center;
+    margin: 0 auto;
+  }
 }
 
 .article-content {
   max-width: 60ch;
   margin: 0 auto;
+}
+
+.article-content-img {
+  margin: 0 auto;
+  max-width: 60ch;
 }

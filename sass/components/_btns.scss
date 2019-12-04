@@ -44,13 +44,13 @@
   @extend .call-to-action-btn;
   font-weight: 400;
   font-size: 1.125rem;
-  background: $gray-200;
+  background: $gray-200 !important;
   box-shadow: $shadow-light;
-  color: $gray-900;
+  color: $gray-900 !important;
   transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s;
   &:hover {
-    background: $gray-600;
-    color: $gray-100;
+    background: $gray-600 !important;
+    color: $gray-100 !important;
     box-shadow: $shadow-light__hover;
   }
 }

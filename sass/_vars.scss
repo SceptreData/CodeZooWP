@@ -116,6 +116,25 @@ $pink-700: #b83280;
 $pink-800: #97266d;
 $pink-900: #702459;
 
+.bg-yellow {
+  background: $yellow-400;
+  &:hover {
+    background: $yellow-300;
+  }
+}
+.bg-blue {
+  background: $blue-500;
+  &:hover {
+    background: $blue-400;
+  }
+}
+.bg-green {
+  background: $green-500;
+  &:hover {
+    background: $green-400;
+  }
+}
+
 /********************************
  Box Shadow
  ********************************/
