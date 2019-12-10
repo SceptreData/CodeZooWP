@@ -35,9 +35,9 @@
 }
 
 .call-to-action-btn {
-  padding: 0.75rem 1.5rem;
-  text-transform: uppercase;
-  box-shadow: $shadow;
+  padding: 0.75rem 1.5rem !important;
+  text-transform: uppercase !important;
+  box-shadow: $shadow !important;
 }
 
 .hero-btn {
@@ -53,4 +53,33 @@
     color: $gray-100 !important;
     box-shadow: $shadow-light__hover;
   }
+}
+
+.btn-movie-action {
+  @extend .call-to-action-btn;
+  background: $gray-800;
+  color: white;
+  margin-bottom: 0.8rem;
+  transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s;
+  &:hover {
+    color: $gray-800;
+    background: $gray-200;
+  }
+}
+
+.btn-movie-action-alt {
+  margin-bottom: 1rem;
+  @extend .call-to-action-btn;
+  color: $gray-800;
+  background: $gray-200;
+  border: 1px solid $gray-800;
+  transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s;
+  &:hover {
+    color: white;
+    background: $gray-600;
+  }
+}
+
+.link-coupon {
+  margin-top: 1rem;
 }

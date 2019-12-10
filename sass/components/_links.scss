@@ -6,3 +6,14 @@ a:visited {
     color: $gray-100;
   }
 }
+
+.category-link,
+.category-link:visited {
+  color: $gray-900;
+  transition: all ease 0.15s;
+  text-decoration: none;
+  &:hover {
+    color: $gray-700;
+    text-decoration: underline;
+  }
+}

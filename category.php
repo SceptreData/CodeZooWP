@@ -1,12 +1,4 @@
 <?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package CodeZoo
- */
-
 /*
  * Template Name: Articles
  * Template Post Type: articles
@@ -15,28 +7,37 @@ get_header();
 $header = get_field('article_header');
 $author = get_the_author_meta('display_name', $user_id);
 ?>
-
-<article class="single-article">
-  <div class="single-article-hero fit-content">
-    <img src="<?php echo $header['header_image']; ?>">
-    <div>
-      <h1><?= $header['title'] ?></h1>
-      <p><?= $header['tagline'] ?></p>
+<article class="single-category">
+  <div class="single-category-hero">
+    <div class="category-hero-content">
+      <h2> Video Training <br> Anywhere, anytime. </h2>
+      <a href="#" class="hero-btn">Sign up for a Free Trial </a>
     </div>
   </div>
 
   <main>
-        <div class="article-content">
+
+  <header>
+      <span>Check out these</span>
+      <h2>Courses and Articles</h2>
+      <div class="heading-underline"></div>
+    </header>
+    <div class="movie-cards">
  <?php if (have_posts()):
             while (have_posts()):
                 the_post();
+                $header = get_field("header");
+                $body = get_field("body");
             ?>
-                <article>
+                <article class="category-card">
                     <header>
+                        <a href="<?php the_permalink(); ?>" class="category-link">
+                        <img src="<?= $header['image'] ;?>">
+                        <div class="card-color-bar blue-bg"></div>
                         <?php the_title('<h2>', '</h2>'); ?>
-                        <?php the_post_thumbnail(); ?>
-                        <?php the_shortlink("Link")
+                        </a>
                     </header>
+                    <div class="movie-excerpt"><?= $header['tagline'] ?></div>
                 </article>
                 <?php
             endwhile; // end while
@@ -61,7 +62,4 @@ get_sidebar();
 get_footer();
 
 
-// template tags togs
-// the_permalink();
-// the_date();
-// the_content();
+

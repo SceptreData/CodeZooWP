@@ -4,13 +4,13 @@
  * Template Post Type: articles
  */
 get_header();
-$header = get_field('article_header');
+$header = get_field('header');
 $author = get_the_author_meta('display_name', $user_id);
 ?>
 
 <article class="single-article">
   <div class="single-article-hero fit-content">
-    <img src="<?php echo $header['header_image']; ?>">
+    <img src="<?php echo $header['image']; ?>">
     <div>
       <h1><?= $header['title'] ?></h1>
       <p><?= $header['tagline'] ?></p>

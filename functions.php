@@ -16,7 +16,11 @@ if ( ! function_exists( 'codezoo_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function codezoo_setup() {
-		/*
+		add_theme_support( 'title-tag' );
+		add_theme_support( 'post-thumbnails' );
+		register_nav_menus( array(
+			'menu-1' => esc_html__( 'Primary', 'codezoo' ),
+		) );	/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on CodeZoo, use a find and replace
@@ -27,26 +31,6 @@ if ( ! function_exists( 'codezoo_setup' ) ) :
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 		add_image_size('');
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		add_theme_support( 'title-tag' );
-
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
-		add_theme_support( 'post-thumbnails' );
-
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'codezoo' ),
-		) );
-
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -117,16 +101,18 @@ function hide_wp_title_input()
 
 // you'll want to rename your  function
 // XXX => name of your post type
-function save_post_type_post($post_id) {
+function save_post_type_handler($post_id) {
+
+		$valid_post_types = ['articles', 'movies'];
     $post_type = get_post_type($post_id);
-    if ($post_type != 'articles') {
+    if (!in_array($post_id, $valid_post_types)) {
         return;
     }
 
     // add the name of the filed that contains the 
     // title YYYYYY = name of the group that contains the
     // title
-    $header = get_field('article_header');
+    $header = get_field('header');
     //ZZZZ ===> name of field for the title
     $post_title = $header['title'];
     $post_name = sanitize_title($post_title);
@@ -135,10 +121,12 @@ function save_post_type_post($post_id) {
         'post_name' => $post_name,
         'post_title' => $post_title
     );
-    wp_update_post($post);
+		wp_update_post($post);
+
 }
 
-add_action('acf/save_post', 'save_post_type_post'); 
+
+add_action('acf/save_post', 'save_post_type_handler'); 
 /**
  * Register widget area.
  *
@@ -175,6 +163,27 @@ function codezoo_scripts() {
 add_action( 'wp_enqueue_scripts', 'codezoo_scripts' );
 add_filter('use_block_editor_for_post', '__return_false', 10);
 
+
+function add_custom_post_types_to_archives($query)
+{
+    // We do not want unintended consequences.
+    if (is_admin() || !$query->is_main_query()) {
+        return;
+    }
+
+    if (is_category() || is_tag() && empty($query->query_vars['suppress_filters'])) {
+        $cptui_post_types = cptui_get_post_type_slugs();
+
+        $query->set(
+            'post_type',
+            array_merge(
+                array('post'),
+                $cptui_post_types
+            )
+        );
+    }
+}
+add_filter('pre_get_posts', 'add_custom_post_types_to_archives');
 /**
  * Implement the Custom Header feature.
  */

@@ -156,6 +156,16 @@ a:visited {
   a:visited:hover {
     color: #f7fafc; }
 
+.category-link,
+.category-link:visited {
+  color: #1a202c;
+  transition: all ease 0.15s;
+  text-decoration: none; }
+  .category-link:hover,
+  .category-link:visited:hover {
+    color: #4a5568;
+    text-decoration: underline; }
+
 .svg-btn, .like-btn, .share-btn, .favorite-btn {
   display: flex;
   align-items: center;
@@ -179,10 +189,10 @@ a:visited {
 .favorite-btn:hover {
   color: #f6e05e; }
 
-.call-to-action-btn, .hero-btn {
-  padding: 0.75rem 1.5rem;
-  text-transform: uppercase;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
+.call-to-action-btn, .hero-btn, .btn-movie-action, .btn-movie-action-alt {
+  padding: 0.75rem 1.5rem !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important; }
 
 .hero-btn {
   font-weight: 400;
@@ -195,6 +205,28 @@ a:visited {
     background: #718096 !important;
     color: #f7fafc !important;
     box-shadow: 0 1px 3px 0 rgba(234, 234, 234, 0.6), 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
+
+.btn-movie-action {
+  background: #2d3748;
+  color: white;
+  margin-bottom: 0.8rem;
+  transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s; }
+  .btn-movie-action:hover {
+    color: #2d3748;
+    background: #edf2f7; }
+
+.btn-movie-action-alt {
+  margin-bottom: 1rem;
+  color: #2d3748;
+  background: #edf2f7;
+  border: 1px solid #2d3748;
+  transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s; }
+  .btn-movie-action-alt:hover {
+    color: white;
+    background: #718096; }
+
+.link-coupon {
+  margin-top: 1rem; }
 
 .site-header div,
 .site-header nav {
@@ -391,6 +423,9 @@ a:visited {
 .blue-bg {
   background: #2b6cb0; }
 
+.green-bg {
+  background: #68d391; }
+
 .red-bg {
   background: #fc8181; }
 
@@ -407,6 +442,86 @@ a:visited {
 .article-card.category {
   text-transform: uppercase;
   margin-bottom: 0; }
+
+.movie-card-price {
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: right; }
+
+.fp-videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+
+.movie-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.movie-card {
+  margin-right: 2rem;
+  background: white;
+  max-width: 300px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2rem; }
+  .movie-card img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    object-position: 0 100%;
+    border-radius: 4px 4px 0 0; }
+  .movie-card h2 {
+    font-size: 1.5rem;
+    padding: 0.25rem 0.5rem; }
+  .movie-card h3 {
+    margin-top: 0;
+    padding: 0 0.5rem;
+    margin-bottom: 0;
+    color: #2b6cb0; }
+  .movie-card h4 {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    margin-bottom: 0;
+    font-weight: 900;
+    color: #2b6cb0; }
+  .movie-card footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.15rem 0.5rem; }
+  .movie-card p {
+    padding: 0 0.5rem;
+    margin-bottom: 0;
+    color: #4a5568; }
+  .movie-card a,
+  .movie-card a:visited {
+    font-weight: 900;
+    color: #2d3748; }
+    .movie-card a:hover,
+    .movie-card a:visited:hover {
+      color: #2b6cb0;
+      text-decoration: underline; }
+  .movie-card .movie-card-rating {
+    margin-left: 1rem;
+    display: flex;
+    color: gold; }
+    .movie-card .movie-card-rating svg {
+      width: 10px; }
+    .movie-card .movie-card-rating .last-star {
+      color: gray; }
+  .movie-card .movie-card-details {
+    display: flex;
+    justify-content: space-between; }
+  .movie-card .movie-price {
+    text-align: right;
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 0.25rem 0.75rem;
+    background: #e2e8f0;
+    border-radius: 2px;
+    margin-right: 1rem; }
+  .movie-card .movie-excerpt {
+    padding: 0.25rem 0.5rem; }
 
 /*--------------------------------------------------------------
 ## Menus
@@ -575,6 +690,9 @@ Break Point Styles Switch between drop down menu and  list of links
     .article-card:last-of-type {
       margin: 0 auto; } }
 
+.category-heading {
+  margin-bottom: 1.5rem; }
+
 .category-section {
   display: flex;
   flex-wrap: wrap;
@@ -616,6 +734,128 @@ Break Point Styles Switch between drop down menu and  list of links
 .article-content-img {
   margin: 0 auto;
   max-width: 60ch; }
+
+.single-movie {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.single-movie-hero {
+  color: white;
+  min-height: 60vh;
+  background-image: url("https://www.davidbergeron.dev/wp-content/uploads/2019/11/featured-movies-header.jpg");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.movie-hero-content {
+  background: rgba(0, 0, 0, 0.527);
+  margin-left: 0;
+  padding: 1rem 2rem; }
+  @media screen and (min-width: 600px) {
+    .movie-hero-content {
+      background: none;
+      margin-left: 10%; } }
+
+@media screen and (min-width: 600px) {
+  .movie-header {
+    margin-right: 3rem;
+    width: 50%; } }
+
+@media screen and (min-width: 600px) {
+  .movie-info img {
+    max-width: 500px; } }
+
+@media screen and (min-width: 600px) {
+  .movie-info {
+    display: flex;
+    align-items: center; } }
+
+.pricing {
+  background: #a0aec0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 1rem 2.5rem;
+  border-radius: 4px; }
+  @media screen and (min-width: 600px) {
+    .pricing {
+      width: 50%; } }
+
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem; }
+
+.movie-content {
+  max-width: 80ch; }
+
+.single-category {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.single-category-hero {
+  color: white;
+  min-height: 60vh;
+  background-image: url("https://www.davidbergeron.dev/wp-content/uploads/2019/11/featured-movies-header.jpg");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.category-hero-content {
+  background: rgba(0, 0, 0, 0.527);
+  margin-left: 0;
+  padding: 1rem 2rem; }
+  @media screen and (min-width: 600px) {
+    .category-hero-content {
+      background: none;
+      margin-left: 10%; } }
+
+.category-card {
+  margin-bottom: 1.5rem; }
+
+.category-card {
+  background: white;
+  max-width: 300px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+  .category-card img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    object-position: 0 100%;
+    border-radius: 4px 4px 0 0; }
+  .category-card h3 {
+    margin-top: 0;
+    padding: 0 0.5rem;
+    margin-bottom: 0;
+    color: #2b6cb0; }
+  .category-card h4 {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    margin-bottom: 0;
+    font-weight: 900;
+    color: #2b6cb0; }
+  .category-card footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.15rem 0.5rem; }
+  .category-card p {
+    padding: 0 0.5rem;
+    margin-bottom: 0;
+    color: #4a5568; }
+  .category-card a,
+  .category-card a:visited {
+    font-weight: 900;
+    color: #2d3748; }
+    .category-card a:hover,
+    .category-card a:visited:hover {
+      color: #2b6cb0;
+      text-decoration: underline; }
 
 body {
   background: #e2e8f0;
