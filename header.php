@@ -26,27 +26,50 @@
   <div id="page" class="site">
     <header id="masthead" class="site-header">
       <div class="header-container fit-content">
-      <a href="/" class="site-branding">
-        <svg class="logo-hippo" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M581.12 96.2c-27.67-.15-52.5 17.58-76.6 26.62C489.98 88.27 455.83 64 416 64c-11.28 0-21.95 2.3-32 5.88V56c0-13.26-10.75-24-24-24h-16c-13.25 0-24 10.74-24 24v48.98C286.01 79.58 241.24 64 192 64 85.96 64 0 135.64 0 224v240c0 8.84 7.16 16 16 16h64c8.84 0 16-7.16 16-16v-70.79C128.35 407.57 166.72 416 208 416s79.65-8.43 112-22.79V464c0 8.84 7.16 16 16 16h64c8.84 0 16-7.16 16-16V288h128v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32c17.67 0 32-14.33 32-32v-92.02c0-34.09-24.79-67.59-58.88-67.78zM448 176c-8.84 0-16-7.16-16-16s7.16-16 16-16 16 7.16 16 16-7.16 16-16 16z"></path></svg>
-        <div class="site-branding-titles">
-        <?php
-        if (is_front_page() && is_home()) :
-          ?>
-          <h2 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h2>
-        <?php
-        else :
-          ?>
-          <p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
-        <?php
-        endif;
-        $codezoo_description = get_bloginfo('description', 'display');
-        if ($codezoo_description || is_customize_preview()) :
-          ?>
-          <p class="site-description"><?php echo $codezoo_description; /* WPCS: xss ok. */ ?></p>
-        <?php endif; ?>
-        </div>
+        <a href="/" class="site-branding">
+          <svg class="logo-hippo" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+            <path fill="currentColor" d="M581.12 96.2c-27.67-.15-52.5 17.58-76.6 26.62C489.98 88.27 455.83 64 416 64c-11.28 0-21.95 2.3-32 5.88V56c0-13.26-10.75-24-24-24h-16c-13.25 0-24 10.74-24 24v48.98C286.01 79.58 241.24 64 192 64 85.96 64 0 135.64 0 224v240c0 8.84 7.16 16 16 16h64c8.84 0 16-7.16 16-16v-70.79C128.35 407.57 166.72 416 208 416s79.65-8.43 112-22.79V464c0 8.84 7.16 16 16 16h64c8.84 0 16-7.16 16-16V288h128v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32c17.67 0 32-14.33 32-32v-92.02c0-34.09-24.79-67.59-58.88-67.78zM448 176c-8.84 0-16-7.16-16-16s7.16-16 16-16 16 7.16 16 16-7.16 16-16 16z"></path>
+          </svg>
+          <div class="site-branding-titles">
+            <?php
+            if (is_front_page() && is_home()) :
+              ?>
+              <h2 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h2>
+            <?php
+            else :
+              ?>
+              <p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
+            <?php
+            endif;
+            $codezoo_description = get_bloginfo('description', 'display');
+            if ($codezoo_description || is_customize_preview()) :
+              ?>
+              <p class="site-description"><?php echo $codezoo_description; /* WPCS: xss ok. */ ?></p>
+            <?php endif; ?>
+          </div>
         </a><!-- .site-branding -->
+        <nav class="site-nav">
+          <ul class="icon-view">
+            <li id="mobile-menu-button" class="mobile-menu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            </li>
+            <li class="list-view-container">
+              <?php wp_nav_menu(array('menu' => 'Pages Menu', 'menu_class' => 'list-view',)); ?>
+            </li>
 
+
+<<<<<<< HEAD
+            <li class="login">
+              <a class="login-button" href="http://jimf.dmitstudent.ca/dmit2032/section-one/wp-login">login</a>
+            </li>
+
+          </ul>
+        </nav>
+        <aside id="mobile-menu-items" class="mobile-menu-items hide-menu">
+          <?php wp_nav_menu(array('menu' => 'Pages Menu')); ?>
+        </aside>
+        </div>
+=======
         <nav class="site-nav">
        <ul class="icon-view">
         
@@ -69,6 +92,7 @@
            <?php wp_nav_menu(array('menu'=>'Categories', 'menu_class'=> 'icon-list')); ?>
         </aside>
       </div>
+>>>>>>> 8ac0e5531bd56dcb60f22bbd1b04c60a9537eb8a
     </header><!-- #masthead -->
 
     <div id="content" class="site-content">
