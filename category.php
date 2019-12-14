@@ -10,7 +10,7 @@ $author = get_the_author_meta('display_name', $user_id);
 <article class="single-category">
   <div class="single-category-hero">
     <div class="category-hero-content">
-      <h2> Video Training <br> Anywhere, anytime. </h2>
+      <h2> We teach <br> You should listen. Or else. </h2>
       <a href="#" class="hero-btn">Sign up for a Free Trial </a>
     </div>
   </div>
@@ -29,7 +29,7 @@ $author = get_the_author_meta('display_name', $user_id);
                 $header = get_field("header");
                 $body = get_field("body");
             ?>
-                <article class="category-card">
+                <article class="category-card" style="margin-right: 1rem;">
                     <header>
                         <a href="<?php the_permalink(); ?>" class="category-link">
                         <img src="<?= $header['image'] ;?>">

@@ -44,7 +44,7 @@ body {
 }
 
 #content {
-  padding-top: 100px;
+  padding-top: 90px;
 
   @media screen and (min-width: 600px) {
     padding-top: 0;
@@ -58,4 +58,8 @@ body {
 .fit-content {
   max-width: 1170px;
   margin: 0 auto;
+}
+
+.flex {
+  display: flex;
 }

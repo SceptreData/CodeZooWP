@@ -429,12 +429,16 @@ a:visited {
 .red-bg {
   background: #fc8181; }
 
+.article-card header h3 {
+  min-height: 80px; }
+
 .article-card-author {
   color: #a0aec0;
   font-size: 0.8rem; }
 
 .article-card-excerpt {
-  padding: 0 1.5rem; }
+  padding: 0 1.5rem;
+  min-height: 50px; }
 
 .article-card-separator {
   border: 0.5px solid #e2e8f0; }
@@ -581,12 +585,17 @@ a.home-link {
   color: #adacac;
   font-weight: 700; }
 
+.mobile-menu {
+  display: block; }
+
 .mobile-menu-icon {
-  width: 1.5rem;
+  width: 2.5rem;
   vertical-align: middle;
   color: #e2e8f0;
+  fill: #e2e8f0;
   margin-left: auto; }
   .mobile-menu-icon:hover {
+    fill: #f7fafc;
     color: #f7fafc; }
 
 .login {
@@ -626,12 +635,14 @@ MOBILE MENU STYLES
   position: absolute;
   top: 0;
   right: 0;
+  margin-right: -100%;
   width: 50%;
   background: #a0aec0;
   padding: 2rem 1rem;
   z-index: 100;
   color: #1a202c;
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  transition: all ease-in-out 0.25s; }
 
 .mobile-menu-items a,
 .mobile-menu-items a:visited {
@@ -763,9 +774,13 @@ Break Point Styles Switch between drop down menu and  list of links
     margin-right: 3rem;
     width: 50%; } }
 
-@media screen and (min-width: 600px) {
-  .movie-info img {
-    max-width: 500px; } }
+.movie-info img {
+  margin: 0 auto;
+  width: 100%; }
+  @media screen and (min-width: 600px) {
+    .movie-info img {
+      margin: 0;
+      max-width: 500px; } }
 
 @media screen and (min-width: 600px) {
   .movie-info {
@@ -790,7 +805,8 @@ Break Point Styles Switch between drop down menu and  list of links
   margin-bottom: 1.25rem; }
 
 .movie-content {
-  max-width: 80ch; }
+  max-width: 80ch;
+  padding: 0 1rem; }
 
 .single-category {
   max-width: 1200px;
@@ -863,7 +879,7 @@ body {
   margin: 0 auto; }
 
 #content {
-  padding-top: 100px; }
+  padding-top: 90px; }
   @media screen and (min-width: 600px) {
     #content {
       padding-top: 0; } }
@@ -874,3 +890,6 @@ body {
 .fit-content {
   max-width: 1170px;
   margin: 0 auto; }
+
+.flex {
+  display: flex; }

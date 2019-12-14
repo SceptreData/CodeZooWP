@@ -67,11 +67,18 @@ a.home-link {
   color: rgb(173, 172, 172);
   font-weight: 700;
 }
+
+.mobile-menu {
+  display: block;
+}
+
 .mobile-menu-icon {
-  width: 1.5rem;
+  width: 2.5rem;
   vertical-align: middle;
   color: $gray-300;
+  fill: $gray-300;
   &:hover {
+    fill: $gray-100;
     color: $gray-100;
   }
   margin-left: auto;
@@ -119,12 +126,14 @@ MOBILE MENU STYLES
   position: absolute;
   top: 0;
   right: 0;
+  margin-right: -100%;
   width: 50%;
   background: $gray-500;
   padding: 2rem 1rem;
   z-index: 100;
   color: $gray-900;
   font-size: 1.5rem;
+  transition: all ease-in-out 0.25s;
 }
 
 .mobile-menu-items a,

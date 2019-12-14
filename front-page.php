@@ -1,12 +1,23 @@
 <?php
+
+
+function random_rating(){
+  return rand(6, 299);
+}
 /*
  * Template file for the Front-Page
  */
-$articles = WP_Query([
+$articles = new WP_Query([
   'post_type' => 'articles',
   'posts_per_page' => '4',
   'orderby' => 'rand'
-])
+]);
+
+$movies = new WP_Query([
+  'post_type' => 'movies',
+  'posts_per_page' => '4',
+  'orderby' => 'rand'
+]);
 
 get_header();
 ?>
@@ -21,6 +32,7 @@ get_header();
   <a href="#" class="btn hero-btn">Browse Courses </a>
 </div>
 <main>
+    <?php if ($articles->have_posts()): ?>
   <section class="fit-content">
     <header>
       <span>Check out our</span>
@@ -28,15 +40,22 @@ get_header();
       <div class="heading-underline"></div>
     </header>
     <div class="fp-articles">
+
+<?php 
+      while ($articles->have_posts()): 
+              $articles->the_post();
+              $header = get_field('header');
+?>
+
       <div class="article-card">
         <header class="article-card-header">
-          <img src="/wp-content/themes/codezoo/img/js-ts.png">
+          <img src="<?= $header['image'] ?>">
           <div class="card-color-bar yellow-bg"></div>
-          <h4 class="category">Javascript</h4>
-          <h3><a href="https://www.davidbergeron.dev/articles/typescript/">Typescript: Bah!</a></h3>
-          <p><span class="article-card-author">David Bergeron</span></p>
+          <h4 class="category flex"><?php the_category('-'); ?></h4>
+          <h3><a href="<?php the_permalink(); ?>"><?= $header['title'] ?></a></h3>
+          <p><span class="article-card-author"><?php the_author() ?></span></p>
         </header>
-        <p class="article-card-excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p class="article-card-excerpt"><?= $header['tagline'] ?></p>
         <hr class="article-card-separator">
         </hr>
         <footer>
@@ -45,131 +64,29 @@ get_header();
               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
               </svg>
-              <span>32</span>
+              <span><?= random_rating(); ?></span>
 
             </button>
             <button class="share-btn">
               <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="share-square" class="svg-inline--fa fa-share-square fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                 <path fill="currentColor" d="M561.938 158.06L417.94 14.092C387.926-15.922 336 5.097 336 48.032v57.198c-42.45 1.88-84.03 6.55-120.76 17.99-35.17 10.95-63.07 27.58-82.91 49.42C108.22 199.2 96 232.6 96 271.94c0 61.697 33.178 112.455 84.87 144.76 37.546 23.508 85.248-12.651 71.02-55.74-15.515-47.119-17.156-70.923 84.11-78.76V336c0 42.993 51.968 63.913 81.94 33.94l143.998-144c18.75-18.74 18.75-49.14 0-67.88zM384 336V232.16C255.309 234.082 166.492 255.35 206.31 376 176.79 357.55 144 324.08 144 271.94c0-109.334 129.14-118.947 240-119.85V48l144 144-144 144zm24.74 84.493a82.658 82.658 0 0 0 20.974-9.303c7.976-4.952 18.286.826 18.286 10.214V464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h132c6.627 0 12 5.373 12 12v4.486c0 4.917-2.987 9.369-7.569 11.152-13.702 5.331-26.396 11.537-38.05 18.585a12.138 12.138 0 0 1-6.28 1.777H54a6 6 0 0 0-6 6v340a6 6 0 0 0 6 6h340a6 6 0 0 0 6-6v-25.966c0-5.37 3.579-10.059 8.74-11.541z"></path>
               </svg>
-              <span>15</span>
+              <span><?= random_rating(); ?></span>
             </button>
           </div>
           <button class="favorite-btn">
             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
               <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
             </svg>
-            <span>9</span>
+              <span><?= random_rating(); ?></span>
           </button>
         </footer>
       </div>
-      <div class="article-card">
-        <header class="article-card-header">
-          <img src="/wp-content/themes/codezoo/img/py-code.jpg">
-          <div class="card-color-bar green-bg"></div>
-          <h4 class="category">Python</h4>
-          <h3><a href="https://www.davidbergeron.dev/articles/python-the-good-bits/">Python: The Good Bits</a></h3>
-          <p><span class="article-card-author">David Bergeron</span></p>
-        </header>
-        <p class="article-card-excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <hr class="article-card-separator">
-        </hr>
-        <footer>
-          <div class="social-buttons">
-            <button class="like-btn">
-              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
-              </svg>
-              <span>32</span>
 
-            </button>
-            <button class="share-btn">
-              <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="share-square" class="svg-inline--fa fa-share-square fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                <path fill="currentColor" d="M561.938 158.06L417.94 14.092C387.926-15.922 336 5.097 336 48.032v57.198c-42.45 1.88-84.03 6.55-120.76 17.99-35.17 10.95-63.07 27.58-82.91 49.42C108.22 199.2 96 232.6 96 271.94c0 61.697 33.178 112.455 84.87 144.76 37.546 23.508 85.248-12.651 71.02-55.74-15.515-47.119-17.156-70.923 84.11-78.76V336c0 42.993 51.968 63.913 81.94 33.94l143.998-144c18.75-18.74 18.75-49.14 0-67.88zM384 336V232.16C255.309 234.082 166.492 255.35 206.31 376 176.79 357.55 144 324.08 144 271.94c0-109.334 129.14-118.947 240-119.85V48l144 144-144 144zm24.74 84.493a82.658 82.658 0 0 0 20.974-9.303c7.976-4.952 18.286.826 18.286 10.214V464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h132c6.627 0 12 5.373 12 12v4.486c0 4.917-2.987 9.369-7.569 11.152-13.702 5.331-26.396 11.537-38.05 18.585a12.138 12.138 0 0 1-6.28 1.777H54a6 6 0 0 0-6 6v340a6 6 0 0 0 6 6h340a6 6 0 0 0 6-6v-25.966c0-5.37 3.579-10.059 8.74-11.541z"></path>
-              </svg>
-              <span>15</span>
-            </button>
-          </div>
-          <button class="favorite-btn">
-            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-            </svg>
-            <span>9</span>
-          </button>
-        </footer>
+      <?php endwhile; ?>
 </div>
-<div class="article-card">
-        <header class="article-card-header">
-          <img src="/wp-content/themes/codezoo/img/js-code.jpg">
-          <div class="card-color-bar yellow-bg"></div>
-          <h4 class="category">Javascript</h4>
-          <h3><a href="https://www.davidbergeron.dev/articles/adventures-in-javascript/#">Adventures in Javascript</a></h3>
-          <p><span class="article-card-author">David Bergeron</span></p>
-        </header>
-        <p class="article-card-excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <hr class="article-card-separator">
-        </hr>
-        <footer>
-          <div class="social-buttons">
-            <button class="like-btn">
-              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
-              </svg>
-              <span>32</span>
-
-            </button>
-            <button class="share-btn">
-              <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="share-square" class="svg-inline--fa fa-share-square fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                <path fill="currentColor" d="M561.938 158.06L417.94 14.092C387.926-15.922 336 5.097 336 48.032v57.198c-42.45 1.88-84.03 6.55-120.76 17.99-35.17 10.95-63.07 27.58-82.91 49.42C108.22 199.2 96 232.6 96 271.94c0 61.697 33.178 112.455 84.87 144.76 37.546 23.508 85.248-12.651 71.02-55.74-15.515-47.119-17.156-70.923 84.11-78.76V336c0 42.993 51.968 63.913 81.94 33.94l143.998-144c18.75-18.74 18.75-49.14 0-67.88zM384 336V232.16C255.309 234.082 166.492 255.35 206.31 376 176.79 357.55 144 324.08 144 271.94c0-109.334 129.14-118.947 240-119.85V48l144 144-144 144zm24.74 84.493a82.658 82.658 0 0 0 20.974-9.303c7.976-4.952 18.286.826 18.286 10.214V464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h132c6.627 0 12 5.373 12 12v4.486c0 4.917-2.987 9.369-7.569 11.152-13.702 5.331-26.396 11.537-38.05 18.585a12.138 12.138 0 0 1-6.28 1.777H54a6 6 0 0 0-6 6v340a6 6 0 0 0 6 6h340a6 6 0 0 0 6-6v-25.966c0-5.37 3.579-10.059 8.74-11.541z"></path>
-              </svg>
-              <span>15</span>
-            </button>
-          </div>
-          <button class="favorite-btn">
-            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-            </svg>
-            <span>9</span>
-          </button>
-        </footer>
-</div>
-<div class="article-card">
-        <header class="article-card-header">
-          <img src="/wp-content/themes/codezoo/img/wesbos.jpg">
-          <div class="card-color-bar blue-bg"></div>
-          <h4 class="category">VS Code</h4>
-          <h3><a href="https://www.davidbergeron.dev/articles/ctrlp-into-my-heart/">Ctrl+P Into my Heart</a></h3>
-          <p><span class="article-card-author">David Bergeron</span></p>
-        </header>
-        <p class="article-card-excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <hr class="article-card-separator">
-        </hr>
-        <footer>
-          <div class="social-buttons">
-            <button class="like-btn">
-              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
-              </svg>
-              <span>32</span>
-
-            </button>
-            <button class="share-btn">
-              <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="share-square" class="svg-inline--fa fa-share-square fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                <path fill="currentColor" d="M561.938 158.06L417.94 14.092C387.926-15.922 336 5.097 336 48.032v57.198c-42.45 1.88-84.03 6.55-120.76 17.99-35.17 10.95-63.07 27.58-82.91 49.42C108.22 199.2 96 232.6 96 271.94c0 61.697 33.178 112.455 84.87 144.76 37.546 23.508 85.248-12.651 71.02-55.74-15.515-47.119-17.156-70.923 84.11-78.76V336c0 42.993 51.968 63.913 81.94 33.94l143.998-144c18.75-18.74 18.75-49.14 0-67.88zM384 336V232.16C255.309 234.082 166.492 255.35 206.31 376 176.79 357.55 144 324.08 144 271.94c0-109.334 129.14-118.947 240-119.85V48l144 144-144 144zm24.74 84.493a82.658 82.658 0 0 0 20.974-9.303c7.976-4.952 18.286.826 18.286 10.214V464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h132c6.627 0 12 5.373 12 12v4.486c0 4.917-2.987 9.369-7.569 11.152-13.702 5.331-26.396 11.537-38.05 18.585a12.138 12.138 0 0 1-6.28 1.777H54a6 6 0 0 0-6 6v340a6 6 0 0 0 6 6h340a6 6 0 0 0 6-6v-25.966c0-5.37 3.579-10.059 8.74-11.541z"></path>
-              </svg>
-              <span>15</span>
-            </button>
-          </div>
-          <button class="favorite-btn">
-            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-            </svg>
-            <span>9</span>
-          </button>
-        </footer>
-</div>
-    </div>
   </section>
+    <?php endif; ?>
 
   <h2 class="fit-content category-heading">Categories </h2>
   <div class="category-section fit-content" style="margin-bottom: 2.5rem;">
@@ -191,6 +108,10 @@ get_header();
     </a>  
   </div>
 
+
+<?php
+  if ($movies->have_posts()):
+?>
    <section class="fp-content fit-content">
     <header>
       <span>Venture down to our</span>
@@ -198,15 +119,24 @@ get_header();
       <div class="heading-underline"></div>
     </header>
     <div class="fp-videos">
+
+
+<?php
+  while ($movies->have_posts()):
+    $movies->the_post();
+    $header = get_field('header');
+    $body = get_field('body');
+?>
+
       <div class="article-card">
         <header class="article-card-header">
-          <img src="/wp-content/themes/codezoo/img/5.jpg">
+          <img src="<?= $header['image'] ?>">
           <div class="card-color-bar yellow-bg"></div>
-          <h4 class="category">Javascript</h4>
-          <h3><a href="https://www.davidbergeron.dev/movies/javascript-basics/">Javascript - The Basics</a></h3>
+          <h4 class="category"><?php the_category(" - ");?></h4>
+          <h3 style="min-height: 152px;"><a href="<?php the_permalink(); ?>"><?= $header['title'] ?></a></h3>
         </header>
-        <div class="movie-card-price">$39.99</div>
-        <p class="article-card-excerpt">In this video Series, we will explore the basics of Javascript.</p>
+        <div class="movie-card-price"><?php $header['price']; ?></div>
+        <p class="article-card-excerpt"><?php the_excerpt();?></p>
         <hr class="article-card-separator">
         </hr>
         <footer>
@@ -215,135 +145,30 @@ get_header();
               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
               </svg>
-              <span>32</span>
+              <span><?= random_rating(); ?></span>
 
             </button>
             <button class="share-btn">
               <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="share-square" class="svg-inline--fa fa-share-square fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                 <path fill="currentColor" d="M561.938 158.06L417.94 14.092C387.926-15.922 336 5.097 336 48.032v57.198c-42.45 1.88-84.03 6.55-120.76 17.99-35.17 10.95-63.07 27.58-82.91 49.42C108.22 199.2 96 232.6 96 271.94c0 61.697 33.178 112.455 84.87 144.76 37.546 23.508 85.248-12.651 71.02-55.74-15.515-47.119-17.156-70.923 84.11-78.76V336c0 42.993 51.968 63.913 81.94 33.94l143.998-144c18.75-18.74 18.75-49.14 0-67.88zM384 336V232.16C255.309 234.082 166.492 255.35 206.31 376 176.79 357.55 144 324.08 144 271.94c0-109.334 129.14-118.947 240-119.85V48l144 144-144 144zm24.74 84.493a82.658 82.658 0 0 0 20.974-9.303c7.976-4.952 18.286.826 18.286 10.214V464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h132c6.627 0 12 5.373 12 12v4.486c0 4.917-2.987 9.369-7.569 11.152-13.702 5.331-26.396 11.537-38.05 18.585a12.138 12.138 0 0 1-6.28 1.777H54a6 6 0 0 0-6 6v340a6 6 0 0 0 6 6h340a6 6 0 0 0 6-6v-25.966c0-5.37 3.579-10.059 8.74-11.541z"></path>
               </svg>
-              <span>15</span>
+              <span><?= random_rating(); ?></span>
             </button>
           </div>
           <button class="favorite-btn">
             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
               <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
             </svg>
-            <span>9</span>
+              <span><?= random_rating(); ?></span>
           </button>
         </footer>
 </div>
+  <?php endwhile; ?>
 
 
-<div class="article-card">
-        <header class="article-card-header">
-          <img src="/wp-content/themes/codezoo/img/10.jpg">
-          <div class="card-color-bar blue-bg"></div>
-          <h4 class="category">VS Code</h4>
-          <h3><a href="https://www.davidbergeron.dev/movies/vscode-plugins/">VS Code Plugins</a></h3>
-        </header>
-        <div class="movie-card-price">$14.99</div>
-        <p class="article-card-excerpt">What are the best VSCode Plugins These days? Check these videos to find out.</p>
-        <hr class="article-card-separator">
-        </hr>
-        <footer>
-          <div class="social-buttons">
-            <button class="like-btn">
-              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
-              </svg>
-              <span>32</span>
-
-            </button>
-            <button class="share-btn">
-              <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="share-square" class="svg-inline--fa fa-share-square fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                <path fill="currentColor" d="M561.938 158.06L417.94 14.092C387.926-15.922 336 5.097 336 48.032v57.198c-42.45 1.88-84.03 6.55-120.76 17.99-35.17 10.95-63.07 27.58-82.91 49.42C108.22 199.2 96 232.6 96 271.94c0 61.697 33.178 112.455 84.87 144.76 37.546 23.508 85.248-12.651 71.02-55.74-15.515-47.119-17.156-70.923 84.11-78.76V336c0 42.993 51.968 63.913 81.94 33.94l143.998-144c18.75-18.74 18.75-49.14 0-67.88zM384 336V232.16C255.309 234.082 166.492 255.35 206.31 376 176.79 357.55 144 324.08 144 271.94c0-109.334 129.14-118.947 240-119.85V48l144 144-144 144zm24.74 84.493a82.658 82.658 0 0 0 20.974-9.303c7.976-4.952 18.286.826 18.286 10.214V464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h132c6.627 0 12 5.373 12 12v4.486c0 4.917-2.987 9.369-7.569 11.152-13.702 5.331-26.396 11.537-38.05 18.585a12.138 12.138 0 0 1-6.28 1.777H54a6 6 0 0 0-6 6v340a6 6 0 0 0 6 6h340a6 6 0 0 0 6-6v-25.966c0-5.37 3.579-10.059 8.74-11.541z"></path>
-              </svg>
-              <span>15</span>
-            </button>
-          </div>
-          <button class="favorite-btn">
-            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-            </svg>
-            <span>9</span>
-          </button>
-        </footer>
-</div>
-
-<div class="article-card">
-        <header class="article-card-header">
-          <img src="/wp-content/themes/codezoo/img/2.jpg">
-          <div class="card-color-bar green-bg"></div>
-          <h4 class="category">Python</h4>
-          <h3><a href="https://www.davidbergeron.dev/movies/python-game-development/">Game Development in Python</a></h3>
-        </header>
-        <div class="movie-card-price">$35.99</div>
-        <p class="article-card-excerpt">Want to learn how to make games? Join us, as we build a roguelike in Python.</p>
-        <hr class="article-card-separator">
-        </hr>
-        <footer>
-          <div class="social-buttons">
-            <button class="like-btn">
-              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
-              </svg>
-              <span>32</span>
-
-            </button>
-            <button class="share-btn">
-              <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="share-square" class="svg-inline--fa fa-share-square fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                <path fill="currentColor" d="M561.938 158.06L417.94 14.092C387.926-15.922 336 5.097 336 48.032v57.198c-42.45 1.88-84.03 6.55-120.76 17.99-35.17 10.95-63.07 27.58-82.91 49.42C108.22 199.2 96 232.6 96 271.94c0 61.697 33.178 112.455 84.87 144.76 37.546 23.508 85.248-12.651 71.02-55.74-15.515-47.119-17.156-70.923 84.11-78.76V336c0 42.993 51.968 63.913 81.94 33.94l143.998-144c18.75-18.74 18.75-49.14 0-67.88zM384 336V232.16C255.309 234.082 166.492 255.35 206.31 376 176.79 357.55 144 324.08 144 271.94c0-109.334 129.14-118.947 240-119.85V48l144 144-144 144zm24.74 84.493a82.658 82.658 0 0 0 20.974-9.303c7.976-4.952 18.286.826 18.286 10.214V464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h132c6.627 0 12 5.373 12 12v4.486c0 4.917-2.987 9.369-7.569 11.152-13.702 5.331-26.396 11.537-38.05 18.585a12.138 12.138 0 0 1-6.28 1.777H54a6 6 0 0 0-6 6v340a6 6 0 0 0 6 6h340a6 6 0 0 0 6-6v-25.966c0-5.37 3.579-10.059 8.74-11.541z"></path>
-              </svg>
-              <span>15</span>
-            </button>
-          </div>
-          <button class="favorite-btn">
-            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-            </svg>
-            <span>9</span>
-          </button>
-        </footer>
-</div>
-
-<div class="article-card">
-        <header class="article-card-header">
-          <img src="/wp-content/themes/codezoo/img/6.jpg">
-          <div class="card-color-bar blue-bg"></div>
-          <h4 class="category">VS Code</h4>
-          <h3><a href="https://www.davidbergeron.dev/movies/vscode-ide/">VS Code: A guide to setting up your IDE</a></h3>
-        </header>
-        <div class="movie-card-price">$12.99</div>
-        <p class="article-card-excerpt">Let's get productive!</p>
-        <hr class="article-card-separator">
-        </hr>
-        <footer>
-          <div class="social-buttons">
-            <button class="like-btn">
-              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
-              </svg>
-              <span>32</span>
-
-            </button>
-            <button class="share-btn">
-              <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="share-square" class="svg-inline--fa fa-share-square fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                <path fill="currentColor" d="M561.938 158.06L417.94 14.092C387.926-15.922 336 5.097 336 48.032v57.198c-42.45 1.88-84.03 6.55-120.76 17.99-35.17 10.95-63.07 27.58-82.91 49.42C108.22 199.2 96 232.6 96 271.94c0 61.697 33.178 112.455 84.87 144.76 37.546 23.508 85.248-12.651 71.02-55.74-15.515-47.119-17.156-70.923 84.11-78.76V336c0 42.993 51.968 63.913 81.94 33.94l143.998-144c18.75-18.74 18.75-49.14 0-67.88zM384 336V232.16C255.309 234.082 166.492 255.35 206.31 376 176.79 357.55 144 324.08 144 271.94c0-109.334 129.14-118.947 240-119.85V48l144 144-144 144zm24.74 84.493a82.658 82.658 0 0 0 20.974-9.303c7.976-4.952 18.286.826 18.286 10.214V464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h132c6.627 0 12 5.373 12 12v4.486c0 4.917-2.987 9.369-7.569 11.152-13.702 5.331-26.396 11.537-38.05 18.585a12.138 12.138 0 0 1-6.28 1.777H54a6 6 0 0 0-6 6v340a6 6 0 0 0 6 6h340a6 6 0 0 0 6-6v-25.966c0-5.37 3.579-10.059 8.74-11.541z"></path>
-              </svg>
-              <span>15</span>
-            </button>
-          </div>
-          <button class="favorite-btn">
-            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-            </svg>
-            <span>9</span>
-          </button>
-        </footer>
-</div>
     </div>
   </section>
+  <?php endif; ?>
 
   <!-- <section class="fp-content">
     <header>

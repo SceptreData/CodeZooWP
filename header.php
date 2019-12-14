@@ -51,14 +51,13 @@
         <nav class="site-nav">
           <ul class="icon-view">
             <li id="mobile-menu-button" class="mobile-menu">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+              <svg class="mobile-menu-icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
             </li>
             <li class="list-view-container">
               <?php wp_nav_menu(array('menu' => 'Pages Menu', 'menu_class' => 'list-view',)); ?>
             </li>
 
 
-<<<<<<< HEAD
             <li class="login">
               <a class="login-button" href="http://jimf.dmitstudent.ca/dmit2032/section-one/wp-login">login</a>
             </li>
@@ -69,30 +68,6 @@
           <?php wp_nav_menu(array('menu' => 'Pages Menu')); ?>
         </aside>
         </div>
-=======
-        <nav class="site-nav">
-       <ul class="icon-view">
-        
-       <li class="list-view-container">
-            <?php wp_nav_menu(array('menu' => 'Articles', 'menu_class'=> 'list-view',));?>
-       </li>
-
-
-       <li id="mobile-menu-button" class="mobile-menu" >
-          <svg aria-hidden="true" focusable="false"  class="mobile-menu-icon svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
-       </li>
-
-        <li class="login">
-        <a  class="login-button" href="https://davidbergeron.dev/wp-admin">login</a>
-       </li>
-
-       </ul>
-</nav>
-        <aside id="mobile-menu-items" class="mobile-menu-items hide-menu">
-           <?php wp_nav_menu(array('menu'=>'Categories', 'menu_class'=> 'icon-list')); ?>
-        </aside>
-      </div>
->>>>>>> 8ac0e5531bd56dcb60f22bbd1b04c60a9537eb8a
     </header><!-- #masthead -->
 
     <div id="content" class="site-content">

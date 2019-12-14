@@ -69,6 +69,9 @@
   background: $red-400;
 }
 
+.article-card header h3 {
+  min-height: 80px;
+}
 .article-card-author {
   color: $gray-500;
   font-size: 0.8rem;
@@ -76,6 +79,7 @@
 
 .article-card-excerpt {
   padding: 0 1.5rem;
+  min-height: 50px;
 }
 
 .article-card-separator {
